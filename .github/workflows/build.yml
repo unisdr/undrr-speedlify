@@ -26,10 +26,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Install and Build 🔧
-        run: | # Install npm packages and build the Storybook files
+        run: | # Install npm packages and build the pages, note this DOES NOT run the site scans
           npm install
-          yarn run build-production
-          mv docs-build _site
+          yarn run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
   # Deployment job

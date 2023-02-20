@@ -8,7 +8,7 @@ module.exports = {
 	urls: [
 		"https://mcr2030dashboard.undrr.org/",
 		"https://sendaicommitments.undrr.org/",
-		"https://mcr2030dashboard.undrr.org/",
+		"https://sendaimonitor.undrr.org/",
 		// "",
 	]
 };
