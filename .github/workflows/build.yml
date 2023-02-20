@@ -1,0 +1,46 @@
+name: Build and Deploy
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    # paths: ["stories/**", "src/components/**", ".github/workflows/storybook.yml", "package.json", "webpack.entries.js"] # Trigger the action only when files change in the folders defined here
+    branches: ["main"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+jobs:
+  build:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      - name: Install and Build 🔧
+        run: | # Install npm packages and build the Storybook files
+          npm install
+          yarn run build-production
+          mv docs-build _site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+  # Deployment job
+  deploy:
+    if: github.ref == 'refs/heads/main' # only deploy if branch is main
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
