@@ -3,7 +3,6 @@ const shortHash = require("short-hash");
 const lodash = require("lodash");
 const getObjectKey = require("./utils/getObjectKey.js");
 const calc = require("./utils/calc.js");
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 
 function hasUrl(urls, requestedUrl) {
   // urls comes from sites[vertical].urls, all requestedUrls (may not include trailing slash)
@@ -65,26 +64,6 @@ function getLighthouseTotal(entry) {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("shortHash", shortHash);
-
-  // https://www.11ty.dev/docs/plugins/html-base/
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-    // The base URL: defaults to Path Prefix
-    // baseHref: eleventyConfig.pathPrefix,
-
-    // But you could use a full URL here too:
-    // baseHref: "undrr-speedlify/",
-
-    // Comma separated list of output file extensions to apply
-    // our transform to. Use `false` to opt-out of the transform.
-    extensions: "html",
-
-    // Rename the filters
-    // filters: {
-    //   base: "htmlBaseUrl",
-    //   html: "transformWithHtmlBase",
-    //   pathPrefix: "undrr-speedlify",
-    // },
-  });
 
   eleventyConfig.addFilter("repeat", function (str, times) {
     let result = '';
