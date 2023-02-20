@@ -71,7 +71,6 @@ module.exports = function (eleventyConfig) {
     // The base URL: defaults to Path Prefix
     // baseHref: eleventyConfig.pathPrefix,
 
-
     // But you could use a full URL here too:
     // baseHref: "undrr-speedlify/",
 
