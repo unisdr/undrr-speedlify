@@ -2,7 +2,7 @@ module.exports = {
 	name: "UNDRR Drupal sites", // optional, falls back to object key
 	description: "UNDRR Drupal sites",
 	options: {
-		runs: 1,
+		runs: 2,
 		frequency: 1, // (in minutes)
 	},
 	urls: [
@@ -16,6 +16,7 @@ module.exports = {
 		"https://rp-americas.undrr.org/",
 		"https://sendaiframework-mtr.undrr.org/",
 		"https://coecdr.preventionweb.net/",
+		"https://apmcdrr.undrr.org/",
 		// "https://g20drrwg.preventionweb.net/", // not yet live
 		// "",
 	]
