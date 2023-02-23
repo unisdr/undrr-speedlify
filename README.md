@@ -10,9 +10,15 @@ Here we use [Speedlify to Continuously Measure Site Performance](https://www.zac
 
 ```
 npm install
-npm run test-pages
-npm run start
+npm run dev
 ```
+
+## Generate assets
+
+We do not yet build the assets as CI, you must.
+
+1. `npm run build-production`
+2. Commit assets from `_data` directory
 
 ## Original readme.md follows
 
