@@ -15,10 +15,14 @@ npm run dev
 
 ## Generate assets
 
-We do not yet build the assets as CI, you must.
+We do not yet build the assets as CI.
+
+Locally you must:
 
 1. `npm run build-production`
 2. Commit assets from `_data` directory
+3. Push to the remote 
+4. Github will then automatically dpeloy the latest changes
 
 ## Original readme.md follows
 
