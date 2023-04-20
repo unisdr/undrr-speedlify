@@ -1,0 +1,66 @@
+{
+  "url": "https://sendaimonitor.undrr.org/",
+  "requestedUrl": "https://sendaimonitor.undrr.org/",
+  "timestamp": 1681941317036,
+  "ranks": {
+    "hundos": 2,
+    "performance": 3,
+    "accessibility": 2,
+    "cumulative": 2
+  },
+  "lighthouse": {
+    "version": "10.1.1",
+    "performance": 0.32,
+    "accessibility": 0.81,
+    "bestPractices": 0.83,
+    "seo": 0.63,
+    "total": 259
+  },
+  "firstContentfulPaint": 10176.690999999993,
+  "firstMeaningfulPaint": 14422.670999999993,
+  "speedIndex": 11562.51207163266,
+  "largestContentfulPaint": 28618.270999999986,
+  "totalBlockingTime": 645.0000000000009,
+  "cumulativeLayoutShift": 0.16496436312358323,
+  "timeToInteractive": 19412.46299999999,
+  "maxPotentialFirstInputDelay": 431,
+  "timeToFirstByte": 41.06,
+  "weight": {
+    "summary": "34 requests • 5,182 KiB",
+    "total": 5305921,
+    "image": 691482,
+    "imageCount": 6,
+    "script": 2633536,
+    "scriptCount": 7,
+    "document": 2107,
+    "font": 108384,
+    "fontCount": 4,
+    "stylesheet": 47767,
+    "stylesheetCount": 2,
+    "thirdParty": 176770,
+    "thirdPartyCount": 8
+  },
+  "run": {
+    "number": 2,
+    "total": 2
+  },
+  "sidequests": {
+    "-weight.total": 2,
+    "+weight.total": 2,
+    "-weight.document": 1,
+    "+weight.document": 3,
+    "-weight.script": 3,
+    "+weight.script": 1,
+    "-weight.image": 2,
+    "+weight.image": 2,
+    "-weight.font": 2,
+    "+weight.font": 2,
+    "+weight.fontCount": 1,
+    "-timeToFirstByte": 1,
+    "-totalBlockingTime": 2,
+    "-largestContentfulPaint": 3
+  },
+  "axe": {
+    "error": "{\"name\":\"ProtocolError\",\"message\":\"Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.\"}"
+  }
+}

@@ -2,7 +2,7 @@ module.exports = {
 	name: "UNDRR Drupal sites", // optional, falls back to object key
 	description: "UNDRR Drupal sites",
 	options: {
-		runs: 2,
+		runs: 3,
 		frequency: 1, // (in minutes)
 	},
 	urls: [
