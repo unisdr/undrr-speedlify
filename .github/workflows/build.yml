@@ -32,7 +32,7 @@ jobs:
           yarn run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2 # Updated to the latest version
+        uses: actions/upload-pages-artifact@v4
 
   deploy:
     if: github.ref == 'refs/heads/main'
