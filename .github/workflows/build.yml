@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4 # Updated to the latest version
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
@@ -32,7 +32,7 @@ jobs:
           yarn run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -44,4 +44,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2 # Updated to the latest version
+        uses: actions/deploy-pages@v2
