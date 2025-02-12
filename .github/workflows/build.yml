@@ -4,36 +4,38 @@ on:
     branches:
       - main
   push:
-    # paths: ["stories/**", "src/components/**", ".github/workflows/storybook.yml", "package.json", "webpack.entries.js"] # Trigger the action only when files change in the folders defined here
     branches: ["main"]
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
 permissions:
   contents: write
   pages: write
   id-token: write
-# Allow one concurrent deployment
+
 concurrency:
   group: "pages"
   cancel-in-progress: true
+
 jobs:
   build:
-    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Updated to the latest version
         with:
           persist-credentials: false
+
       - name: Install and Build 🔧
-        run: | # Install npm packages and build the pages, note this DOES NOT run the site scans
+        run: |
           npm install
           yarn run build
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-  # Deployment job
+        uses: actions/upload-pages-artifact@v2 # Updated to the latest version
+
   deploy:
-    if: github.ref == 'refs/heads/main' # only deploy if branch is main
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -42,4 +44,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2 # Updated to the latest version
