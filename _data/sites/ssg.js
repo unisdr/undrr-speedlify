@@ -1,6 +1,6 @@
 module.exports = {
 	name: "SSG", // optional, falls back to object key
-	description: "Static Site Generator web sites",
+	description: "Site Generator web sites",
 	// skip if localhost
 	// skip if this is a new fork of the speedlify (not Zach’s)
 	skip: !process.env.CONTEXT || process.env.SITE_NAME !== "speedlify",
@@ -27,6 +27,7 @@ module.exports = {
 		"https://remix.run/",
 		"https://record-collector.net/",
 		"https://www.solidjs.com/",
+		"https://lume.land/",
 	],
 	skipUrls: [
 		"https://hexo.io/zh-cn/",
