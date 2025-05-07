@@ -33,7 +33,7 @@ jobs:
       - name: Check for Lighthouse Regressions
         id: check_regressions
         run: |
-          node check-lighthouse-regressions.js results/results-last-runs.json default/_data/results-last-runs.json
+          node default/check-lighthouse-regressions.js results/results-last-runs.json default/_data/results-last-runs.json
         env:
           REGRESSION_THRESHOLD_PERCENT: 10 # Default threshold for regression
       - name: Upload results artifact
