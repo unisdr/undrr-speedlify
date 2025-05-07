@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
         continue-on-error: true
         with:
-          ref: refs/heads/results
+          ref: refs/heads/main
           path: results
       - name: Checkout speedlify
         uses: actions/checkout@v2
@@ -50,7 +50,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: results
+          branch: main
           folder: default/_data
           commit-message: "Commit results"
           git-config-name: github-actions
