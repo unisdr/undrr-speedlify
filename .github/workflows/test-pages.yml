@@ -1,0 +1,52 @@
+name: Run speedlify
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout results
+        id: checkout-results
+        uses: actions/checkout@v2
+        continue-on-error: true
+        with:
+          ref: refs/heads/results
+          path: results
+      - name: Checkout speedlify
+        uses: actions/checkout@v2
+        with:
+          path: default
+      - name: Copy existing results
+        if: steps.checkout-results.outcome == 'success'
+        run: cp -r results/. default/_data
+      - name: Install npm dependencies
+        run: npm install
+        working-directory: default
+      - name: Run test-pages
+        run: npm run test-pages
+        working-directory: default
+      - name: Upload results artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: default/_data/results
+      - name: Upload results-last-runs artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: results-last-runs.json
+          path: default/_data/results-last-runs.json
+      - name: Push results to results branch
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: results
+          folder: default/_data
+          commit-message: "Commit results"
+          git-config-name: github-actions
+          git-config-email: github-actions@github.com
+          clean: true
