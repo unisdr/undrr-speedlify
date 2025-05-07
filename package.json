@@ -2,7 +2,6 @@
   "name": "speedlify",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "clean": "rm -rf _data/results/* && rm -rf .log && rm -rf _site",
     "test-pages": "node run-tests",
@@ -30,18 +29,19 @@
     "url": "https://github.com/zachleat/speedlify/issues"
   },
   "homepage": "https://github.com/zachleat/speedlify#readme",
-  "dependencies": {
+  "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-fetch": "^5.0.0-beta.3",
+    "@11ty/eleventy-fetch": "^5.0.2",
     "byte-size": "^9.0.1",
-    "chartist": "^0.11.4",
-    "cross-zip": "^4.0.0",
+    "cross-zip": "^4.0.1",
     "dotenv": "^16.4.7",
-    "fast-glob": "^3.3.2",
+    "fast-glob": "^3.3.3",
     "lodash": "^4.17.21",
-    "performance-leaderboard": "^11.6.0",
-    "puppeteer": "^24.2.0",
-    "short-hash": "^1.0.0",
+    "performance-leaderboard": "^12.4.0",
+    "short-hash": "^1.0.0"
+  },
+  "dependencies": {
+    "chartist": "^0.11.4",
     "speedlify-score": "^4.0.4"
   }
 }
