@@ -46,13 +46,17 @@ jobs:
         with:
           name: results-last-runs.json
           path: default/_data/results-last-runs.json
-      - name: Push results to results branch
+      - name: Push results to main branch
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          repository-name: ${{ github.repository }}
           branch: main
           folder: default/_data
           commit-message: "Commit results"
           git-config-name: github-actions
           git-config-email: github-actions@github.com
           clean: true
+          clean-exclude: |
+            .github
+            node_modules
