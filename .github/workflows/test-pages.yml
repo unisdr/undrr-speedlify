@@ -47,16 +47,29 @@ jobs:
           name: results-last-runs.json
           path: default/_data/results-last-runs.json
       - name: Push results to main branch
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository-name: ${{ github.repository }}
-          branch: main
-          folder: default/_data
-          commit-message: "Commit results"
-          git-config-name: github-actions
-          git-config-email: github-actions@github.com
-          clean: true
-          clean-exclude: |
-            .github
-            node_modules
+        run: |
+          # Copy results to a temporary directory
+          mkdir -p temp_results
+          cp -r default/_data/* temp_results/
+          
+          # Configure git
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          
+          # Clone the repository again (to main branch)
+          git clone --single-branch --branch main https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git main_repo
+          
+          # Copy results to the main branch repository
+          cp -r temp_results/* main_repo/
+          
+          # Commit and push changes
+          cd main_repo
+          git add .
+          
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update Speedlify results"
+            git push origin main
+          fi
