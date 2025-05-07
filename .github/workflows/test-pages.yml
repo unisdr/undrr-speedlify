@@ -6,19 +6,28 @@ on:
   schedule:
     - cron: "0 * * * *"
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   run-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout results
         id: checkout-results
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         continue-on-error: true
         with:
           ref: refs/heads/main
           path: results
       - name: Checkout speedlify
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: default
       - name: Copy existing results
@@ -73,3 +82,36 @@ jobs:
             git commit -m "Update Speedlify results"
             git push origin main
           fi
+      
+  # Separate job for building and deploying to GitHub Pages
+  build-and-deploy:
+    needs: run-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
