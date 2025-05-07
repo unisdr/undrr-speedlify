@@ -1,0 +1,67 @@
+{
+  "url": "https://sendaimonitor.undrr.org/",
+  "requestedUrl": "https://sendaimonitor.undrr.org/",
+  "timestamp": 1677503797981,
+  "ranks": {
+    "hundos": 2,
+    "performance": 3,
+    "accessibility": 2,
+    "cumulative": 2
+  },
+  "lighthouse": {
+    "version": "10.0.1",
+    "performance": 0.25,
+    "accessibility": 0.81,
+    "bestPractices": 0.83,
+    "seo": 0.63,
+    "total": 252
+  },
+  "firstContentfulPaint": 10511.201999999994,
+  "firstMeaningfulPaint": 14827.887999999997,
+  "speedIndex": 10910.775443458098,
+  "largestContentfulPaint": 22545.597000000005,
+  "totalBlockingTime": 1039.500000000001,
+  "cumulativeLayoutShift": 0.17768486750541143,
+  "timeToInteractive": 23358.819000000003,
+  "maxPotentialFirstInputDelay": 431,
+  "timeToFirstByte": 41.512,
+  "weight": {
+    "summary": "34 requests • 5,185 KiB",
+    "total": 5309359,
+    "image": 691483,
+    "imageCount": 6,
+    "script": 2632898,
+    "scriptCount": 7,
+    "document": 2107,
+    "font": 119499,
+    "fontCount": 5,
+    "stylesheet": 47789,
+    "stylesheetCount": 2,
+    "thirdParty": 187264,
+    "thirdPartyCount": 9
+  },
+  "run": {
+    "number": 2,
+    "total": 2
+  },
+  "sidequests": {
+    "-weight.total": 2,
+    "+weight.total": 2,
+    "-weight.document": 1,
+    "+weight.document": 3,
+    "-weight.script": 3,
+    "+weight.script": 1,
+    "-weight.image": 2,
+    "+weight.image": 2,
+    "-weight.font": 2,
+    "+weight.font": 2,
+    "+weight.fontCount": 1,
+    "-timeToFirstByte": 1,
+    "-totalBlockingTime": 3,
+    "-largestContentfulPaint": 3
+  },
+  "axe": {
+    "passes": 4543,
+    "violations": 40
+  }
+}
