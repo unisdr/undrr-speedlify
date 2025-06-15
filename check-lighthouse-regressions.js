@@ -28,6 +28,7 @@ function loadJson(filePath) {
     }
 }
 
+
 function writeToCsv(newResultsData, csvPath) {
     const csvExists = fs.existsSync(csvPath);
     const timestamp = new Date().toISOString();
@@ -55,7 +56,7 @@ function writeToCsv(newResultsData, csvPath) {
                     siteHash,
                     siteData.lighthouse.performance || '',
                     siteData.lighthouse.accessibility || '',
-                    siteData.lighthouse['best-practices'] || '',
+                    siteData.lighthouse.bestPractices || '',
                     siteData.lighthouse.seo || ''
                 ];
                 csvContent += row.join(',') + '\n';
