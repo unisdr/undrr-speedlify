@@ -7,6 +7,7 @@ module.exports = {
 	},
 	urls: [
 		"https://www.undrr.org/",
+		"https://www.undrr.org/test/front-end-performance",
 		"https://www.preventionweb.net/",
 		"https://recovery.preventionweb.net/",
 		"https://mcr2030.undrr.org/",

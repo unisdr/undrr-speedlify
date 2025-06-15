@@ -28,6 +28,46 @@ function loadJson(filePath) {
     }
 }
 
+function writeToCsv(newResultsData, csvPath) {
+    const csvExists = fs.existsSync(csvPath);
+    const timestamp = new Date().toISOString();
+    
+    // CSV headers
+    const headers = ['timestamp', 'site_url', 'site_hash', 'performance', 'accessibility', 'best-practices', 'seo'];
+    
+    let csvContent = '';
+    
+    // Add headers if file doesn't exist
+    if (!csvExists) {
+        csvContent += headers.join(',') + '\n';
+    }
+    
+    // Add data rows
+    for (const siteHash in newResultsData) {
+        if (Object.hasOwnProperty.call(newResultsData, siteHash)) {
+            const siteData = newResultsData[siteHash];
+            const siteUrl = siteData.url || siteHash;
+            
+            if (siteData.lighthouse) {
+                const row = [
+                    timestamp,
+                    `"${siteUrl}"`, // Quote URL in case it contains commas
+                    siteHash,
+                    siteData.lighthouse.performance || '',
+                    siteData.lighthouse.accessibility || '',
+                    siteData.lighthouse['best-practices'] || '',
+                    siteData.lighthouse.seo || ''
+                ];
+                csvContent += row.join(',') + '\n';
+            }
+        }
+    }
+    
+    // Append to file
+    fs.appendFileSync(csvPath, csvContent);
+    console.log(`Metrics written to CSV: ${csvPath}`);
+}
+
 const oldResultsData = loadJson(oldResultsPath);
 const newResultsData = loadJson(newResultsPath);
 
@@ -35,6 +75,10 @@ if (!newResultsData) {
     console.error('Error: Could not load new results data. Exiting.');
     process.exit(1); // Critical error if new results are missing
 }
+
+// Write metrics to CSV
+const csvPath = path.join(path.dirname(newResultsPath), 'lighthouse-metrics.csv');
+writeToCsv(newResultsData, csvPath);
 
 if (!oldResultsData) {
     console.log('No old results data found to compare against. Skipping regression check.');
