@@ -1,0 +1,47 @@
+{
+  "name": "speedlify",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "clean": "rm -rf _data/results/* && rm -rf .log && rm -rf _site",
+    "test-pages": "node run-tests",
+    "build": "npx @11ty/eleventy --quiet --pathprefix='undrr-speedlify/'",
+    "start": "npx @11ty/eleventy --quiet --serve",
+    "zip-results": "node zip-results.js",
+    "build-production": "npm run test-pages && npm run build && npm run zip-results",
+    "dev": "npm run build-production && npm start"
+  },
+  "keywords": [
+    "performance",
+    "lighthouse"
+  ],
+  "author": {
+    "name": "Zach Leatherman",
+    "email": "zachleatherman@gmail.com",
+    "url": "https://zachleat.com/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachleat/speedlify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zachleat/speedlify/issues"
+  },
+  "homepage": "https://github.com/zachleat/speedlify#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-fetch": "^5.0.2",
+    "byte-size": "^9.0.1",
+    "cross-zip": "^4.0.1",
+    "dotenv": "^16.4.7",
+    "fast-glob": "^3.3.3",
+    "lodash": "^4.17.21",
+    "performance-leaderboard": "^12.4.0",
+    "short-hash": "^1.0.0"
+  },
+  "dependencies": {
+    "chartist": "^0.11.4",
+    "speedlify-score": "^4.0.4"
+  }
+}
