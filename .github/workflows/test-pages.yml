@@ -33,6 +33,10 @@ jobs:
       - name: Copy existing results
         if: steps.checkout-results.outcome == 'success'
         run: cp -r results/_data/results/ default/_data/
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
       - name: Install npm dependencies
         run: npm install
         working-directory: default
