@@ -32,7 +32,7 @@ jobs:
           path: default
       - name: Copy existing results
         if: steps.checkout-results.outcome == 'success'
-        run: cp -r results/. default/_data/results
+        run: cp -r results/_data/results/ default/_data/results
       - name: Install npm dependencies
         run: npm install
         working-directory: default
