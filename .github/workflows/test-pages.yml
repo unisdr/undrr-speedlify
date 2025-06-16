@@ -57,28 +57,24 @@ jobs:
           path: default/_data/results-last-runs.json
       - name: Push results to main branch
         run: |
-          # Copy results to a temporary directory
-          mkdir -p temp_results
-          cp -r default/_data/* temp_results/
-          
-          # Configure git
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           
-          # Clone the repository again (to main branch)
           git clone --single-branch --branch main https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git main_repo
           
-          # Copy results to the main branch repository
-          cp -r temp_results/* main_repo/
+          cp -r default/_data main_repo/
           
-          # Commit and push changes
           cd main_repo
-          git add .
+          echo "Files to be committed:"
+          git status --porcelain
+          
+          git add _data/
           
           # Only commit if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
+            echo "Committing changes..."
             git commit -m "Update Speedlify results and metrics CSV"
             git push origin main
           fi
