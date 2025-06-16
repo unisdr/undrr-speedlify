@@ -62,7 +62,16 @@ jobs:
           
           git clone --single-branch --branch main https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git main_repo
           
-          cp -r default/_data main_repo/
+          cp -r default/_data main_repo/_data
+
+          # mkdir -p main_repo/_data
+          
+          # cp -r default/_data/results main_repo/_data/results 2>/dev/null || true
+          # cp default/_data/results-last-runs.json main_repo/_data/results-last-runs.json 2>/dev/null || true
+          
+          # if [ -f default/_data/lighthouse-metrics.csv ]; then
+          #   cp default/_data/lighthouse-metrics.csv main_repo/_data/lighthouse-metrics.csv 2>/dev/null || true
+          # fi
           
           cd main_repo
           echo "Files to be committed:"
