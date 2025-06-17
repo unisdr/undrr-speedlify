@@ -106,7 +106,13 @@ async function tryToPreventNetlifyBuildTimeout(dateTestsStarted, numberOfUrls, e
 		let runCount =
 			group.options && group.options.runs ? group.options.runs : NUMBER_OF_RUNS;
 		let options = Object.assign({
-			chromeFlags: ['--headless', '--disable-dev-shm-usage']
+			chromeFlags: [
+				'--headless',
+				'--no-sandbox',
+				'--disable-dev-shm-usage',
+				'--disable-web-security',
+				'--disable-features=VizDisplayCompositor'
+			]
 		}, group.options);
 
 		let results = await PerfLeaderboard(

@@ -7,6 +7,7 @@ module.exports = {
 	},
 	urls: [
 		"https://www.undrr.org/",
+		"https://www.undrr.org/test/front-end-performance",
 		"https://www.preventionweb.net/",
 		"https://recovery.preventionweb.net/",
 		"https://mcr2030.undrr.org/",
@@ -17,7 +18,7 @@ module.exports = {
 		"https://sendaiframework-mtr.undrr.org/",
 		"https://coecdr.preventionweb.net/",
 		"https://apmcdrr.undrr.org/",
-		// "https://g20drrwg.preventionweb.net/", // not yet live
-		// "",
+		"https://g20drrwg.preventionweb.net/", // not yet live
+		"",
 	]
 };
