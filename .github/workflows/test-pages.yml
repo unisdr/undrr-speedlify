@@ -33,10 +33,11 @@ jobs:
       - name: Copy existing results
         if: steps.checkout-results.outcome == 'success'
         run: cp -r results/_data/results/ default/_data/
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
+      # This seems to be conflicting with the lighthouse version of Chrome
+      # - name: Setup Chrome
+      #   uses: browser-actions/setup-chrome@v1
+      #   with:
+      #     chrome-version: stable
       - name: Install npm dependencies
         run: npm install
         working-directory: default
@@ -86,7 +87,13 @@ jobs:
             git commit -m "Update Speedlify results and metrics CSV"
             git push origin main
           fi
-      
+      - name: Verify test output
+        run: |
+          if ! ls default/_data/results/*/*date-*json 1>/dev/null 2>&1; then
+            echo "No Lighthouse results written – failing build"
+            exit 1
+          fi
+
   # Separate job for building and deploying to GitHub Pages
   build-and-deploy:
     needs: run-tests
