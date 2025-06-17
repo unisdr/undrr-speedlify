@@ -1,7 +1,0 @@
-node_modules
-.log
-_site
-package-lock.json
-.env
-.cache
-.DS_Store
