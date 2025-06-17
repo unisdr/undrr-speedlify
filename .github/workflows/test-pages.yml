@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout results
         id: checkout-results
@@ -44,6 +44,8 @@ jobs:
       - name: Run test-pages
         run: npm run test-pages
         working-directory: default
+        env:
+          CI: true
       - name: Check for Lighthouse Regressions
         id: check_regressions
         run: |
@@ -64,21 +66,21 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          
+
           cd results
-          
+
           cp -r ../default/_data/results/* _data/results/
           cp ../default/_data/results-last-runs.json _data/results-last-runs.json
-          
+
           if [ -f ../default/_data/lighthouse-metrics.csv ]; then
             cp ../default/_data/lighthouse-metrics.csv _data/lighthouse-metrics.csv
           fi
-          
+
           echo "Files to be committed:"
           git status --porcelain
-          
+
           git add _data/
-          
+
           # Only commit if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
