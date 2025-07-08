@@ -1,0 +1,66 @@
+{
+  "url": "https://mcr2030.undrr.org/",
+  "requestedUrl": "https://mcr2030.undrr.org/",
+  "timestamp": 1751987640445,
+  "ranks": {
+    "hundos": 12,
+    "performance": 13,
+    "accessibility": 13,
+    "cumulative": 12
+  },
+  "lighthouse": {
+    "version": "12.7.1",
+    "performance": 0.46,
+    "accessibility": 0.76,
+    "bestPractices": 0.61,
+    "seo": 1,
+    "total": 283
+  },
+  "firstContentfulPaint": 2227.517,
+  "speedIndex": 6624.312383166216,
+  "largestContentfulPaint": 8682.9305,
+  "totalBlockingTime": 914.5,
+  "cumulativeLayoutShift": 0.001188952890621037,
+  "timeToInteractive": 24275.18825,
+  "maxPotentialFirstInputDelay": 266,
+  "timeToFirstByte": 379.923,
+  "weight": {
+    "summary": "118 requests • 4.3 MiB",
+    "total": 4492732,
+    "image": 1390462,
+    "imageCount": 27,
+    "script": 2073514,
+    "scriptCount": 50,
+    "document": 77764,
+    "font": 650937,
+    "fontCount": 13,
+    "stylesheet": 195470,
+    "stylesheetCount": 6,
+    "thirdParty": 1777664,
+    "thirdPartyCount": 10
+  },
+  "run": {
+    "number": 2,
+    "total": 3
+  },
+  "sidequests": {
+    "-weight.total": 13,
+    "+weight.total": 1,
+    "-weight.document": 12,
+    "+weight.document": 2,
+    "-weight.script": 13,
+    "+weight.script": 1,
+    "-weight.image": 12,
+    "+weight.image": 2,
+    "-weight.font": 12,
+    "+weight.font": 2,
+    "+weight.fontCount": 2,
+    "-timeToFirstByte": 7,
+    "-totalBlockingTime": 13,
+    "-largestContentfulPaint": 11
+  },
+  "axe": {
+    "passes": 49,
+    "violations": 2
+  }
+}
