@@ -1,10 +1,9 @@
 # speedlify
 
-Here we use [Speedlify to Continuously Measure Site Performance](https://www.zachleat.com/web/speedlify/) of UNDRR websites. 
+Here we use [Speedlify to Continuously Measure Site Performance](https://www.zachleat.com/web/speedlify/) of UNDRR websites.
 
-* Requires Node 12+
-* Each file in `_data/sites/*.js` is a category and contains a list of sites for comparison.
-* This is a fork from https://github.com/zachleat/speedlify
+- Each file in `_data/sites/*.js` is a category and contains a list of sites for comparison.
+- This is a fork from <https://github.com/zachleat/speedlify>
 
 ## Run locally
 
@@ -21,42 +20,90 @@ Locally you must:
 
 1. `npm run build-production`
 2. Commit assets from `_data` directory
-3. Push to the remote 
+3. Push to the remote
 4. Github will then automatically dpeloy the latest changes
 
-## Original readme.md follows
+## Lighthouse Regression Checking
 
-## Related
+This Speedlify instance includes automated regression detection that protects against performance degradation over time—because nobody wants their lighthouse scores sliding into the abyss while they're busy shipping features.
 
-* [The Eleventy Leaderboards](https://www.zachleat.com/web/eleventy-leaderboard-speedlify/) are running on Speedlify
-* [speedlify.dev](https://www.speedlify.dev/) shows some sample categories
-* Use the [`<speedlify-score>` component](https://github.com/zachleat/speedlify-score) to show your scores on your page. Read more at [I added Lighthouse Scores to my Site’s Footer and You Can Too](https://www.zachleat.com/web/lighthouse-in-footer/)
-* The [Eleventy Starter Projects list](https://www.11ty.dev/docs/starter/) shows Lighthouse scores from Speedlify. Read more at [The Lighthouse Scores Will Continue Until Morale Improves](https://www.zachleat.com/web/11ty-lighthouse/).
+### How It Works
 
-## Deploy to Netlify
+The regression check runs automatically after every lighthouse test execution and compares the latest results against the previous run. Here's what happens under the hood:
 
-Can run directly on Netlify (including your tests) and will save the results to a Netlify build cache (via Netlify Build Plugins, see `plugins/keep-data-cache/`).
+1. **Test Execution**: Lighthouse tests run via `npm run test-pages`
+2. **Comparison**: The `check-lighthouse-regressions.js` script compares new results against the previous baseline
+3. **Analysis**: By default, it checks **performance** and **accessibility** metrics (though you can add `best-practices` and `seo` if you're feeling ambitious)
+4. **Decision**: If any site shows a significant regression, the build fails immediately
 
-_After cloning you’ll probably want to delete the initial `_data/sites/*.js` files and create your own file with a list of your own site URLs!_
+### When It's Triggered
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/zachleat/speedlify"><img src="https://www.netlify.com/img/deploy/button.svg" width="146" height="32"></a>
+The regression check runs automatically in three scenarios:
 
-Speedlify will also save your data to `/results.zip` so that you can download later. Though this has proved to be unnecessary so far, it does serve as a fallback backup mechanism in case the Netlify cache is lost. Just look up your previous build URL and download the data to restore.
+- **On every push** to the repository
+- **Manual trigger** via GitHub Actions workflow dispatch
+- **Scheduled runs** every Tuesday at 3:00 PM UTC (because Tuesdays needed more excitement)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7298a132-e366-460a-a4da-1ea352a4e790/deploy-status)](https://app.netlify.com/sites/speedlify/deploys)
+**Note**: Results are only committed and deployed when running on the `main` branch. Pull request builds will run tests but won't update the stored results.
 
-* **Run every day or week**: You can set Speedlify to run at a specified interval using a Netlify Build Hook, read more on the Eleventy docs: [Quick Tip #008—Trigger a Netlify Build Every Day with IFTTT](https://www.11ty.dev/docs/quicktips/netlify-ifttt/).
+### What Causes Build Failures
 
-## Known Limitations
+The system fails the build when any monitored site's lighthouse scores drop by more than the configured threshold compared to the previous run.
 
-* If you change a URL to remove a redirect (to remove or add a `www.`, moved domains, etc), you probably want to delete the old URL’s data otherwise you’ll have two entries in the results list.
-* When running on Netlify, a single category has a max limit on the number of sites it can test, upper bound on how many tests it can complete in the 15 minute Netlify build limit.
-* The same URL cannot be listed in two different categories (yet).
+**Default threshold**: 10% decrease (configurable via `REGRESSION_THRESHOLD_PERCENT` environment variable)
+
+**Example failure scenarios**:
+
+- Performance score drops from 0.85 to 0.75 (11.8% decrease) → Build fails
+- Accessibility score drops from 0.90 to 0.82 (8.9% decrease) → Build passes
+- Performance stays at 0.70 but accessibility drops from 0.95 to 0.84 (11.6% decrease) → Build fails
+
+### Configuration Options
+
+You can customize the regression check behavior:
+
+```bash
+# Set a different threshold (default: 10)
+REGRESSION_THRESHOLD_PERCENT=15
+
+# The script checks these metrics by default:
+# - performance
+# - accessibility
+#
+# To monitor additional metrics, edit the METRICS_TO_CHECK array in check-lighthouse-regressions.js
+```
+
+### What Happens on Failure
+
+When regressions are detected:
+
+1. The script logs detailed information about which sites and metrics failed
+2. The GitHub Actions workflow fails with exit code 1
+3. No results are committed to the repository
+4. You get to debug why your beautiful website suddenly became a digital sloth
+
+### CSV Metrics Tracking
+
+The regression checker automatically generates a `lighthouse-metrics.csv` file that tracks performance metrics over time. This CSV file:
+
+- Creates headers automatically on first run
+- Appends new metrics data after each test run
+- Includes timestamp, URL, and all Lighthouse category scores
+- Gets committed to the repository along with test results
+- Provides historical data for trend analysis
+
+### Handling Missing Baseline Data
+
+The system gracefully handles first-time runs:
+
+- If no previous results exist, the check passes automatically
+- New sites added to monitoring won't fail on their first run
+- The system establishes a baseline for future comparisons
 
 ## Pay for something better
 
 Speedlify is intended as a stepping stone to more robust performance monitoring solutions like:
 
-* [SpeedCurve](https://speedcurve.com/)
-* [Calibre](https://calibreapp.com/)
-* [DebugBear](https://www.debugbear.com/)
+- [SpeedCurve](https://speedcurve.com/)
+- [Calibre](https://calibreapp.com/)
+- [DebugBear](https://www.debugbear.com/)
