@@ -44,6 +44,8 @@ The regression check runs automatically in three scenarios:
 - **Manual trigger** via GitHub Actions workflow dispatch
 - **Scheduled runs** every Tuesday at 3:00 PM UTC (because Tuesdays needed more excitement)
 
+**Note**: Results are only committed and deployed when running on the `main` branch. Pull request builds will run tests but won't update the stored results.
+
 ### What Causes Build Failures
 
 The system fails the build when any monitored site's lighthouse scores drop by more than the configured threshold compared to the previous run.
@@ -79,6 +81,24 @@ When regressions are detected:
 2. The GitHub Actions workflow fails with exit code 1
 3. No results are committed to the repository
 4. You get to debug why your beautiful website suddenly became a digital sloth
+
+### CSV Metrics Tracking
+
+The regression checker automatically generates a `lighthouse-metrics.csv` file that tracks performance metrics over time. This CSV file:
+
+- Creates headers automatically on first run
+- Appends new metrics data after each test run
+- Includes timestamp, URL, and all Lighthouse category scores
+- Gets committed to the repository along with test results
+- Provides historical data for trend analysis
+
+### Handling Missing Baseline Data
+
+The system gracefully handles first-time runs:
+
+- If no previous results exist, the check passes automatically
+- New sites added to monitoring won't fail on their first run
+- The system establishes a baseline for future comparisons
 
 ## Pay for something better
 
