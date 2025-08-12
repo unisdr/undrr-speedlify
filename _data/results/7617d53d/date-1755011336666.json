@@ -1,0 +1,66 @@
+{
+  "url": "https://rix.undrr.org/",
+  "requestedUrl": "https://rix.undrr.org/",
+  "timestamp": 1755012356139,
+  "ranks": {
+    "hundos": 1,
+    "performance": 1,
+    "accessibility": 1,
+    "cumulative": 1
+  },
+  "lighthouse": {
+    "version": "12.8.1",
+    "performance": 0.09,
+    "accessibility": 1,
+    "bestPractices": 0.71,
+    "seo": 1,
+    "total": 280
+  },
+  "firstContentfulPaint": 13209.895499999999,
+  "speedIndex": 24882.112307014526,
+  "largestContentfulPaint": 17306.995500000005,
+  "totalBlockingTime": 1185.5,
+  "cumulativeLayoutShift": 0.58,
+  "timeToInteractive": 48927.581100000054,
+  "maxPotentialFirstInputDelay": 615,
+  "timeToFirstByte": 242.717,
+  "weight": {
+    "summary": "303 requests • 48.2 MiB",
+    "total": 50564977,
+    "image": 44992950,
+    "imageCount": 25,
+    "script": 4330843,
+    "scriptCount": 140,
+    "document": 9733,
+    "font": 151329,
+    "fontCount": 6,
+    "stylesheet": 191326,
+    "stylesheetCount": 5,
+    "thirdParty": 50556935,
+    "thirdPartyCount": 5
+  },
+  "run": {
+    "number": 1,
+    "total": 2
+  },
+  "sidequests": {
+    "-weight.total": 1,
+    "+weight.total": 1,
+    "-weight.document": 1,
+    "+weight.document": 1,
+    "-weight.script": 1,
+    "+weight.script": 1,
+    "-weight.image": 1,
+    "+weight.image": 1,
+    "-weight.font": 1,
+    "+weight.font": 1,
+    "+weight.fontCount": 1,
+    "-timeToFirstByte": 1,
+    "-totalBlockingTime": 1,
+    "-largestContentfulPaint": 1
+  },
+  "axe": {
+    "passes": 1344,
+    "violations": 17
+  }
+}
