@@ -1,0 +1,66 @@
+{
+  "url": "https://tsunamiday.undrr.org/",
+  "requestedUrl": "https://tsunamiday.undrr.org/",
+  "timestamp": 1756221362151,
+  "ranks": {
+    "hundos": 8,
+    "performance": 11,
+    "accessibility": 3,
+    "cumulative": 8
+  },
+  "lighthouse": {
+    "version": "12.8.1",
+    "performance": 0.56,
+    "accessibility": 0.92,
+    "bestPractices": 0.61,
+    "seo": 1,
+    "total": 309
+  },
+  "firstContentfulPaint": 8818.655000000002,
+  "speedIndex": 8818.655000000002,
+  "largestContentfulPaint": 10339.775000000001,
+  "totalBlockingTime": 112.5,
+  "cumulativeLayoutShift": 0,
+  "timeToInteractive": 14633.727025000004,
+  "maxPotentialFirstInputDelay": 150,
+  "timeToFirstByte": 176.61,
+  "weight": {
+    "summary": "67 requests • 2.7 MiB",
+    "total": 2786693,
+    "image": 785163,
+    "imageCount": 15,
+    "script": 1409527,
+    "scriptCount": 26,
+    "document": 68282,
+    "font": 363310,
+    "fontCount": 8,
+    "stylesheet": 148500,
+    "stylesheetCount": 6,
+    "thirdParty": 1468990,
+    "thirdPartyCount": 6
+  },
+  "run": {
+    "number": 2,
+    "total": 3
+  },
+  "sidequests": {
+    "-weight.total": 10,
+    "+weight.total": 4,
+    "-weight.document": 10,
+    "+weight.document": 4,
+    "-weight.script": 12,
+    "+weight.script": 2,
+    "-weight.image": 11,
+    "+weight.image": 3,
+    "-weight.font": 6,
+    "+weight.font": 8,
+    "+weight.fontCount": 5,
+    "-timeToFirstByte": 1,
+    "-totalBlockingTime": 1,
+    "-largestContentfulPaint": 11
+  },
+  "axe": {
+    "passes": 49,
+    "violations": 2
+  }
+}
