@@ -1,0 +1,66 @@
+{
+  "url": "https://www.undrr.org/",
+  "requestedUrl": "https://www.undrr.org/",
+  "timestamp": 1758035978749,
+  "ranks": {
+    "hundos": 9,
+    "performance": 10,
+    "accessibility": 1,
+    "cumulative": 9
+  },
+  "lighthouse": {
+    "version": "12.8.2",
+    "performance": 0.66,
+    "accessibility": 0.92,
+    "bestPractices": 0.61,
+    "seo": 0.85,
+    "total": 304
+  },
+  "firstContentfulPaint": 2285.2355,
+  "speedIndex": 3208.2874693014783,
+  "largestContentfulPaint": 6334.2024,
+  "totalBlockingTime": 349.5,
+  "cumulativeLayoutShift": 0.00008772321239479682,
+  "timeToInteractive": 12811.215329999999,
+  "maxPotentialFirstInputDelay": 219,
+  "timeToFirstByte": 320.041,
+  "weight": {
+    "summary": "83 requests • 4.1 MiB",
+    "total": 4280310,
+    "image": 493626,
+    "imageCount": 16,
+    "script": 1447325,
+    "scriptCount": 33,
+    "document": 79681,
+    "font": 424033,
+    "fontCount": 9,
+    "stylesheet": 149818,
+    "stylesheetCount": 7,
+    "thirdParty": 1502509,
+    "thirdPartyCount": 9
+  },
+  "run": {
+    "number": 3,
+    "total": 3
+  },
+  "sidequests": {
+    "-weight.total": 13,
+    "+weight.total": 1,
+    "-weight.document": 12,
+    "+weight.document": 2,
+    "-weight.script": 13,
+    "+weight.script": 1,
+    "-weight.image": 10,
+    "+weight.image": 4,
+    "-weight.font": 9,
+    "+weight.font": 5,
+    "+weight.fontCount": 4,
+    "-timeToFirstByte": 2,
+    "-totalBlockingTime": 12,
+    "-largestContentfulPaint": 7
+  },
+  "axe": {
+    "passes": 49,
+    "violations": 2
+  }
+}
