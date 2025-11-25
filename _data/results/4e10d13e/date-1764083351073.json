@@ -1,0 +1,66 @@
+{
+  "url": "https://rp-americas.undrr.org/2023/",
+  "requestedUrl": "https://rp-americas.undrr.org/",
+  "timestamp": 1764083651429,
+  "ranks": {
+    "hundos": 13,
+    "performance": 12,
+    "accessibility": 11,
+    "cumulative": 13
+  },
+  "lighthouse": {
+    "version": "12.8.2",
+    "performance": 0.56,
+    "accessibility": 0.79,
+    "bestPractices": 0.79,
+    "seo": 0.62,
+    "total": 276
+  },
+  "firstContentfulPaint": 1830.2828100000006,
+  "speedIndex": 3701.6593297674963,
+  "largestContentfulPaint": 8945.56492,
+  "totalBlockingTime": 112,
+  "cumulativeLayoutShift": 0.3043144468936071,
+  "timeToInteractive": 10009.173499000002,
+  "maxPotentialFirstInputDelay": 142,
+  "timeToFirstByte": 192.425,
+  "weight": {
+    "summary": "67 requests • 1.5 MiB",
+    "total": 1545853,
+    "image": 496059,
+    "imageCount": 14,
+    "script": 371159,
+    "scriptCount": 22,
+    "document": 30186,
+    "font": 493090,
+    "fontCount": 14,
+    "stylesheet": 151652,
+    "stylesheetCount": 6,
+    "thirdParty": 274694,
+    "thirdPartyCount": 7
+  },
+  "run": {
+    "number": 1,
+    "total": 3
+  },
+  "sidequests": {
+    "-weight.total": 7,
+    "+weight.total": 7,
+    "-weight.document": 10,
+    "+weight.document": 4,
+    "-weight.script": 1,
+    "+weight.script": 13,
+    "-weight.image": 8,
+    "+weight.image": 6,
+    "-weight.font": 10,
+    "+weight.font": 4,
+    "+weight.fontCount": 1,
+    "-timeToFirstByte": 2,
+    "-totalBlockingTime": 2,
+    "-largestContentfulPaint": 12
+  },
+  "axe": {
+    "passes": 49,
+    "violations": 2
+  }
+}
