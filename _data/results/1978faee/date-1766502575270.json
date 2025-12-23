@@ -1,0 +1,66 @@
+{
+  "url": "https://coecdr.preventionweb.net/",
+  "requestedUrl": "https://coecdr.preventionweb.net/",
+  "timestamp": 1766503064137,
+  "ranks": {
+    "hundos": 1,
+    "performance": 2,
+    "accessibility": 4,
+    "cumulative": 1
+  },
+  "lighthouse": {
+    "version": "12.8.2",
+    "performance": 0.75,
+    "accessibility": 0.91,
+    "bestPractices": 0.82,
+    "seo": 1,
+    "total": 348
+  },
+  "firstContentfulPaint": 2157.5188000000003,
+  "speedIndex": 2713.491659713457,
+  "largestContentfulPaint": 5458.868700000001,
+  "totalBlockingTime": 174,
+  "cumulativeLayoutShift": 0,
+  "timeToInteractive": 7324.3182,
+  "maxPotentialFirstInputDelay": 161,
+  "timeToFirstByte": 389.038,
+  "weight": {
+    "summary": "59 requests • 904.4 KiB",
+    "total": 926136,
+    "image": 252019,
+    "imageCount": 20,
+    "script": 442479,
+    "scriptCount": 24,
+    "document": 11110,
+    "font": 142373,
+    "fontCount": 3,
+    "stylesheet": 68335,
+    "stylesheetCount": 3,
+    "thirdParty": 414823,
+    "thirdPartyCount": 5
+  },
+  "run": {
+    "number": 2,
+    "total": 3
+  },
+  "sidequests": {
+    "-weight.total": 1,
+    "+weight.total": 13,
+    "-weight.document": 2,
+    "+weight.document": 12,
+    "-weight.script": 6,
+    "+weight.script": 8,
+    "-weight.image": 2,
+    "+weight.image": 12,
+    "-weight.font": 1,
+    "+weight.font": 13,
+    "+weight.fontCount": 9,
+    "-timeToFirstByte": 12,
+    "-totalBlockingTime": 8,
+    "-largestContentfulPaint": 4
+  },
+  "axe": {
+    "passes": 57,
+    "violations": 6
+  }
+}
