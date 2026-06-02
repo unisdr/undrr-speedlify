@@ -1,0 +1,66 @@
+{
+  "url": "https://www.preventionweb.net/understanding-disaster-risk/disaster-losses-and-statistics/global-risk-data-sets",
+  "requestedUrl": "https://rix.undrr.org/",
+  "timestamp": 1780419079295,
+  "ranks": {
+    "hundos": 1,
+    "performance": 1,
+    "accessibility": 1,
+    "cumulative": 1
+  },
+  "lighthouse": {
+    "version": "12.8.2",
+    "performance": 0.66,
+    "accessibility": 0.84,
+    "bestPractices": 0.61,
+    "seo": 0.92,
+    "total": 303
+  },
+  "firstContentfulPaint": 2991.12,
+  "speedIndex": 2991.12,
+  "largestContentfulPaint": 5135.621999999999,
+  "totalBlockingTime": 350.5,
+  "cumulativeLayoutShift": 0.071805,
+  "timeToInteractive": 11662.622500000001,
+  "maxPotentialFirstInputDelay": 247,
+  "timeToFirstByte": 230.691,
+  "weight": {
+    "summary": "88 requests • 1.5 MiB",
+    "total": 1583740,
+    "image": 400211,
+    "imageCount": 18,
+    "script": 741424,
+    "scriptCount": 49,
+    "document": 46155,
+    "font": 271910,
+    "fontCount": 5,
+    "stylesheet": 88819,
+    "stylesheetCount": 3,
+    "thirdParty": 697247,
+    "thirdPartyCount": 5
+  },
+  "run": {
+    "number": 1,
+    "total": 2
+  },
+  "sidequests": {
+    "-weight.total": 1,
+    "+weight.total": 1,
+    "-weight.document": 1,
+    "+weight.document": 1,
+    "-weight.script": 1,
+    "+weight.script": 1,
+    "-weight.image": 1,
+    "+weight.image": 1,
+    "-weight.font": 1,
+    "+weight.font": 1,
+    "+weight.fontCount": 1,
+    "-timeToFirstByte": 1,
+    "-totalBlockingTime": 1,
+    "-largestContentfulPaint": 1
+  },
+  "axe": {
+    "passes": 50,
+    "violations": 7
+  }
+}
